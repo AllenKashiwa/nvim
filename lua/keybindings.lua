@@ -119,6 +119,7 @@ end
 
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
+map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 pluginKeys.telescopeList = {
     i = {
         -- 上下移动
