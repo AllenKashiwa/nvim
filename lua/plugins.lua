@@ -71,4 +71,5 @@ return require('packer').startup(function(use)
     use {
         "glepnir/zephyr-nvim",
     }
+    use "Pocco81/AutoSave.nvim"
 end)
