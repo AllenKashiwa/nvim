@@ -17,6 +17,7 @@ project.setup({
     ".hg",
     ".bzr",
     ".svn",
+    ".code-workspace",
     "Makefile",
   },
 })
