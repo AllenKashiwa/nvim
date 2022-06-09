@@ -156,7 +156,7 @@ pluginKeys.comment = {
 }
 
 map("n", "<C-_>", "gcc", { noremap = false})
-map("v", "<C-_>", "gbc", { noremap = false})
+map("v", "<C-_>", "gcc", { noremap = false})
 
 -- lsp 快捷键设置
 -- ./lua/lsp/language_servers.lua
