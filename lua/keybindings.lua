@@ -126,6 +126,7 @@ end
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 map("n", "<leader>p", ":Telescope projects<CR>", opt)
+map("n", "<A-\\>", ":Telescope lsp_document_symbols<CR>", opt)
 pluginKeys.telescopeList = {
     i = {
         -- 上下移动
