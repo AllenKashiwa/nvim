@@ -17,6 +17,9 @@ local opt = {noremap = true, silent = true }
 -- 浏览代码
 map("n", "<C-u>", "9k", opt)
 map("n", "<C-d>", "9j", opt)
+-- 跳转
+map("n", "<C-j>", "<C-i>", opt)
+map("n", "<C-k>", "<C-o>", opt)
 
 ----------------- 文件操作 start --------------------
 -- 兼容保存
