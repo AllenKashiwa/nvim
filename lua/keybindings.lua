@@ -43,7 +43,7 @@ map('n', '<tab>', 'V>', opt)
 -----------------  分屏窗口 start ------------------
 
 -- 只使用水平分屏
-map("n", "<A-\\>", ":vsp<CR>", opt)
+map("n", "<C-\\>", ":vsp<CR>", opt)
 -- 关闭分屏窗口
 map("n", "<A-w>", "<C-w>c", opt)
 -- 跳转分屏窗口
@@ -63,6 +63,8 @@ map("n", "<leader>c", "gg=G", opt)
 -- bufferline 左右切换
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
+-- 关闭buffer
+map("n", "<leader>b", ":bw<CR>", opt)
 
 
 pluginKeys = {}
