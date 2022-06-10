@@ -36,6 +36,14 @@ map('v', '<tab>', '>gv', opt)
 -- normal mode下缩进
 map('n', '<s-tab>', 'V<', opt)
 map('n', '<tab>', 'V>', opt)
+-- 和系统剪切板互通
+-- 复制到系统剪切板
+map('v', '<C-c>', '"+y', opt)
+map('n', '<C-c>', '"+y', opt)
+map('n', '<C-c>', '"+yy', opt)
+-- 从系统剪切板粘贴
+map('n', '<C-v>', '"+p', opt)
+map('v', '<C-v>', '"+p', opt)
 
 -----------------  文本编辑 end --------------------
 
