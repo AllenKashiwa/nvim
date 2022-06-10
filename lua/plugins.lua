@@ -10,8 +10,8 @@ return require('packer').startup(function(use)
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     -- lualine
     use({
-      "nvim-lualine/lualine.nvim",
-      requires = { "kyazdani42/nvim-web-devicons" },
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons" },
     })
     use("arkav/lualine-lsp-progress")
     -- treesitter
@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
     use("theHamsta/nvim-dap-virtual-text")
     use("rcarriga/nvim-dap-ui")
     use("j-hui/fidget.nvim")
-
+    
     ---------------- colorschemes --------------
     -- tokyonight
     use("folke/tokyonight.nvim")
@@ -72,4 +72,15 @@ return require('packer').startup(function(use)
         "glepnir/zephyr-nvim",
     }
     use "Pocco81/AutoSave.nvim"
+
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
 end)

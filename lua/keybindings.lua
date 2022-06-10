@@ -12,7 +12,7 @@ vim.g.maplocalleader = " "
 
 -- 保存本地变量
 local map = vim.api.nvim_set_keymap
-local opt = {noremap = true, silent = true }
+local opt = { noremap = true, silent = true }
 
 -- 浏览代码
 map("n", "<C-u>", "9k", opt)
@@ -72,7 +72,7 @@ map("n", "<leader>c", "gg=G", opt)
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 -- 关闭buffer
-map("n", "<leader>b", ":bw<CR>", opt)
+map("n", "<leader>cb", ":bw<CR>", opt)
 
 
 pluginKeys = {}
@@ -82,7 +82,7 @@ pluginKeys.maplsp = function(mapbuf)
     -- rename
     mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
     -- code action
-    mapbuf('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
+    mapbuf('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
     -- go xx
     mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
     mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
@@ -92,7 +92,7 @@ pluginKeys.maplsp = function(mapbuf)
     -- diagnostic
     mapbuf('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>', opt)
     mapbuf('n', '<A-Left>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
-    mapbuf('n', '<A-Left>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
+    mapbuf('n', '<A-Right>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
     -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
     -- leader + =
     mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
@@ -121,7 +121,7 @@ pluginKeys.cmp = function(cmp)
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
         ['<CR>'] = cmp.mapping.confirm({
-            select = true ,
+            select = true,
             behavior = cmp.ConfirmBehavior.Replace
         }),
         -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
@@ -169,23 +169,25 @@ pluginKeys.comment = {
     },
 }
 
-map("n", "<C-_>", "gcc", { noremap = false})
-map("v", "<C-_>", "gcc", { noremap = false})
+map("n", "<C-_>", "gcc", { noremap = false })
+map("v", "<C-_>", "gcc", { noremap = false })
 
 -- lsp 快捷键设置
 -- ./lua/lsp/language_servers.lua
 pluginKeys.lsp_on_attach = function(client, buffer)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
     --- Mappings.
-    local opts = { noremap=true, silent=true }
+    local opts = { noremap = true, silent = true }
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', 'ge' , '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', 'ge', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', 'gpe', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
     buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
