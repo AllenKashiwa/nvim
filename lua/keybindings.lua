@@ -133,8 +133,14 @@ end
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
+-- 列出项目
 map("n", "<leader>p", ":Telescope projects<CR>", opt)
+-- 搜symbol
 map("n", "<A-\\>", ":Telescope lsp_document_symbols<CR>", opt)
+-- 查找当前 buffer symbol
+map("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", opt)
+-- 列出寄存器 list registers
+map("n", "<leader>lr", ":Telescope registers<CR>", opt)
 pluginKeys.telescopeList = {
     i = {
         -- 上下移动
@@ -196,3 +202,4 @@ end
 return pluginKeys
 
 ----------------- 插件快捷键 start -------------------
+--
