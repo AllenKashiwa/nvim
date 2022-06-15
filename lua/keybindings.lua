@@ -97,6 +97,8 @@ map("n", "<leader>rl", ":Telescope registers<CR>", opt)
 
 -- 列出项目 p for project
 map("n", "<leader>p", ":Telescope projects<CR>", opt)
+-- quit
+map("n", "<leader>q", ":q<CR>", opt)
 
 ----------------- leader end -------------------
 
