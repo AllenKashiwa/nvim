@@ -50,8 +50,9 @@ map('v', '<C-v>', '"+p', opt)
 
 -----------------  分屏窗口 start ------------------
 
--- 只使用水平分屏
+-- 垂直分屏
 map("n", "<C-\\>", ":vsp<CR>", opt)
+
 -- 关闭分屏窗口
 map("n", "<A-w>", "<C-w>c", opt)
 -- 跳转分屏窗口
@@ -59,20 +60,54 @@ map("n", "<C-ww>", "<C-w>h", opt)
 
 -----------------  分屏窗口 end ------------------
 
+----------------- leader start -------------------
+
+-- f for file
+-- file explore nvimTree
+map('n', '<leader>fe', ':NvimTreeToggle<CR>', opt)
+-- file clean nvim-treesitter 代码格式化
+map("n", "<leader>fc", "gg=G", opt)
+-- file search
+map("n", "<leader>fs", ":Telescope find_files<CR>", opt)
+
+-- b for buffer
+-- 关闭buffer
+map("n", "<leader>bc", ":bw<CR>", opt)
+
+-- w for window
+-- window split
+map("n", "<leader>ws", ":sp<CR>", opt)
+-- window vertical split
+map("n", "<leader>wvs", ":vsp<CR>", opt)
+-- window h for left
+map("n", "<leader>wh", "<C-w>h", opt)
+-- window h for right
+map("n", "<leader>wl", "<C-w>l", opt)
+-- window k for up
+map("n", "<leader>wk", "<C-w>k", opt)
+-- window j for down
+map("n", "<leader>wj", "<C-w>j", opt)
+-- window close
+map("n", "<leader>wc", "<C-w>c", opt)
+
+-- symbol search 查找当前symbol
+map("n", "<leader>ss", ":Telescope lsp_document_symbols<CR>", opt)
+-- registers list 列出寄存器 r for
+map("n", "<leader>rl", ":Telescope registers<CR>", opt)
+
+-- 列出项目 p for project
+map("n", "<leader>p", ":Telescope projects<CR>", opt)
+
+----------------- leader end -------------------
+
 
 ----------------- 插件快捷键 start -------------------
 
--- nvimTree
-map('n', '<leader>e', ':NvimTreeToggle<CR>', opt)
 
--- nvim-treesitter 代码格式化
-map("n", "<leader>c", "gg=G", opt)
 
 -- bufferline 左右切换
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
--- 关闭buffer
-map("n", "<leader>cb", ":bw<CR>", opt)
 
 
 pluginKeys = {}
@@ -94,12 +129,13 @@ pluginKeys.maplsp = function(mapbuf)
     mapbuf('n', '<A-Left>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
     mapbuf('n', '<A-Right>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
     -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
-    -- leader + =
-    mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
+    -- file formatting
+    mapbuf('n', '<leader>ff', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
     -- mapbuf('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt)
     -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
     -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
-    -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
+    -- w for workspace;l for list
+    mapbuf('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
     -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
 
@@ -132,15 +168,11 @@ end
 
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
-map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
--- 列出项目
-map("n", "<leader>p", ":Telescope projects<CR>", opt)
+-- search everything
+map("n", "<C-t>", ":Telescope live_grep<CR>", opt)
 -- 搜symbol
 map("n", "<A-\\>", ":Telescope lsp_document_symbols<CR>", opt)
--- 查找当前 buffer symbol
-map("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", opt)
--- 列出寄存器 list registers
-map("n", "<leader>lr", ":Telescope registers<CR>", opt)
+
 pluginKeys.telescopeList = {
     i = {
         -- 上下移动
@@ -178,28 +210,6 @@ pluginKeys.comment = {
 map("n", "<C-_>", "gcc", { noremap = false })
 map("v", "<C-_>", "gcc", { noremap = false })
 
--- lsp 快捷键设置
--- ./lua/lsp/language_servers.lua
-pluginKeys.lsp_on_attach = function(client, buffer)
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
-    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-    --- Mappings.
-    local opts = { noremap = true, silent = true }
-    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', 'ge', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', 'gpe', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-    buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-end
-
 return pluginKeys
 
------------------ 插件快捷键 start -------------------
---
+----------------- 插件快捷键 end -------------------
