@@ -1,0 +1,10 @@
+{
+    "log": {
+        "prefix": ["log"],
+        "body": "print(\"wuji test $TM_FILENAME_BASE\")"
+    },
+    "logT": {
+        "prefix": ["logT"],
+        "body": "print(\"wuji test $TM_FILENAME_BASE\", debug.traceback())"
+    }
+}

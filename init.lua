@@ -19,6 +19,7 @@ require("plugin-config.surround")
 require("plugin-config.nvim-autopairs")
 require("plugin-config.fidget")
 require("plugin-config.autosave")
+require("plugin-config.vim-vsnip")
 -- 内置LSP
 require("lsp.setup")
 require("lsp.nvim-cmp")
