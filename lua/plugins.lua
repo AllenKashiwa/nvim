@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     use("arkav/lualine-lsp-progress")
     -- treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use 'p00f/nvim-ts-rainbow'
     -- lspconfig
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
     -- nvim-cmp
@@ -38,8 +39,6 @@ return require('packer').startup(function(use)
     -- telescope extensions
     use("LinArcX/telescope-env.nvim")
     use("nvim-telescope/telescope-ui-select.nvim")
-    -- dashboard-nvim
-    use("glepnir/dashboard-nvim")
     -- project
     use("ahmedkhalf/project.nvim")
     -- indent-blankline
