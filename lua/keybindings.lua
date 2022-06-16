@@ -69,6 +69,8 @@ map('n', '<leader>fe', ':NvimTreeToggle<CR>', opt)
 map("n", "<leader>fc", "gg=G", opt)
 -- file search
 map("n", "<leader>fs", ":Telescope find_files<CR>", opt)
+-- file path
+map("n", "<leader>fp", ":let @+=expand('%:p')<CR>", opt)
 
 -- b for buffer
 -- buffer close current 关闭buffer
@@ -218,6 +220,5 @@ map("n", "<C-_>", "gcc", { noremap = false })
 map("v", "<C-_>", "gcc", { noremap = false })
 
 return pluginKeys
-
 
 ----------------- 插件快捷键 end -------------------
