@@ -71,8 +71,11 @@ map("n", "<leader>fc", "gg=G", opt)
 map("n", "<leader>fs", ":Telescope find_files<CR>", opt)
 
 -- b for buffer
--- 关闭buffer
-map("n", "<leader>bc", ":bw<CR>", opt)
+-- buffer close current 关闭buffer
+map("n", "<leader>bcc", ":bw<CR>", opt)
+-- buffer close other 关闭其他buffer
+map("n", "<leader>bco", ":%bdelete|edit #|normal `<CR>", opt)
+
 
 -- w for window
 -- window split
@@ -215,5 +218,6 @@ map("n", "<C-_>", "gcc", { noremap = false })
 map("v", "<C-_>", "gcc", { noremap = false })
 
 return pluginKeys
+
 
 ----------------- 插件快捷键 end -------------------
