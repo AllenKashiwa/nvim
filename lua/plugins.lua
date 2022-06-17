@@ -19,14 +19,16 @@ return require('packer').startup(function(use)
     use 'p00f/nvim-ts-rainbow'
     -- lspconfig
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
-    -- nvim-cmp
+    -- 补全引擎
     use 'hrsh7th/nvim-cmp'
+    -- 补全源
+    use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
     use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
     use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
     use 'hrsh7th/cmp-path'     -- { name = 'path' }
     use 'hrsh7th/cmp-cmdline'  -- { name = 'cmdline' }
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'  -- { name = 'cmdline' }
     -- vsnip
-    use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
     use 'hrsh7th/vim-vsnip'
     use 'rafamadriz/friendly-snippets'
     -- lspkind
