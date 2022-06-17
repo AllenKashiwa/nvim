@@ -20,6 +20,7 @@ require("plugin-config.nvim-autopairs")
 require("plugin-config.fidget")
 require("plugin-config.autosave")
 require("plugin-config.vim-vsnip")
+require("plugin-config.which-key")
 -- 内置LSP
 require("lsp.setup")
 require("lsp.nvim-cmp")

@@ -64,36 +64,36 @@ map("n", "<C-ww>", "<C-w>h", opt)
 
 -- f for file
 -- file explore nvimTree
-map('n', '<leader>fe', ':NvimTreeToggle<CR>', opt)
+-- map('n', '<leader>fe', ':NvimTreeToggle<CR>', opt)
 -- file clean nvim-treesitter 代码格式化
-map("n", "<leader>fc", "gg=G", opt)
+-- map("n", "<leader>fc", "gg=G", opt)
 -- file search
-map("n", "<leader>fs", ":Telescope find_files<CR>", opt)
+-- map("n", "<leader>fs", ":Telescope find_files<CR>", opt)
 -- file path
-map("n", "<leader>fp", ":let @+=expand('%:p')<CR>", opt)
+-- map("n", "<leader>fp", ":let @+=expand('%:p')<CR>", opt)
 
 -- b for buffer
 -- buffer close current 关闭buffer
-map("n", "<leader>bcc", ":bw<CR>", opt)
+-- map("n", "<leader>bcc", ":bw<CR>", opt)
 -- buffer close other 关闭其他buffer
-map("n", "<leader>bco", ":%bdelete|edit #|normal `<CR>", opt)
+-- map("n", "<leader>bco", ":%bdelete|edit #|normal `<CR>", opt)
 
 
 -- w for window
 -- window split
-map("n", "<leader>ws", ":sp<CR>", opt)
+-- map("n", "<leader>ws", ":sp<CR>", opt)
 -- window vertical split
-map("n", "<leader>wvs", ":vsp<CR>", opt)
+-- map("n", "<leader>wvs", ":vsp<CR>", opt)
 -- window h for left
-map("n", "<leader>wh", "<C-w>h", opt)
+-- map("n", "<leader>wh", "<C-w>h", opt)
 -- window h for right
-map("n", "<leader>wl", "<C-w>l", opt)
+-- map("n", "<leader>wl", "<C-w>l", opt)
 -- window k for up
-map("n", "<leader>wk", "<C-w>k", opt)
+-- map("n", "<leader>wk", "<C-w>k", opt)
 -- window j for down
-map("n", "<leader>wj", "<C-w>j", opt)
+-- map("n", "<leader>wj", "<C-w>j", opt)
 -- window close
-map("n", "<leader>wc", "<C-w>c", opt)
+-- map("n", "<leader>wc", "<C-w>c", opt)
 
 -- symbol search 查找当前symbol
 map("n", "<leader>ss", ":Telescope lsp_document_symbols<CR>", opt)
@@ -139,12 +139,12 @@ pluginKeys.maplsp = function(mapbuf)
     mapbuf('n', '<A-Right>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
     -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
     -- file formatting
-    mapbuf('n', '<leader>ff', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
+    -- mapbuf('n', '<leader>ff', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
     -- mapbuf('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt)
     -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
     -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
     -- workspace folder
-    mapbuf('n', '<leader>wf', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
+    -- mapbuf('n', '<leader>wf', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
     -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
 
@@ -186,33 +186,33 @@ pluginKeys.telescopeList = {
     i = {
         -- 上下移动
         ["<C-j>"] = "move_selection_next",
-        ["<C-k>"] = "move_selection_previous",
-        ["<C-n>"] = "move_selection_next",
-        ["<C-p>"] = "move_selection_previous",
-        -- 历史记录
-        ["<Down>"] = "cycle_history_next",
-        ["<Up>"] = "cycle_history_prev",
-        -- 关闭窗口
-        -- ["<esc>"] = actions.close,
-        ["<C-c>"] = "close",
-        -- 预览窗口上下滚动
-        ["<C-u>"] = "preview_scrolling_up",
-        ["<C-d>"] = "preview_scrolling_down",
+["<C-k>"] = "move_selection_previous",
+["<C-n>"] = "move_selection_next",
+["<C-p>"] = "move_selection_previous",
+-- 历史记录
+["<Down>"] = "cycle_history_next",
+["<Up>"] = "cycle_history_prev",
+-- 关闭窗口
+-- ["<esc>"] = actions.close,
+["<C-c>"] = "close",
+-- 预览窗口上下滚动
+["<C-u>"] = "preview_scrolling_up",
+["<C-d>"] = "preview_scrolling_down",
     },
 }
 
 -- 代码注释插件
 -- see ./lua/plugin-config/comment.lua
 pluginKeys.comment = {
-    -- normal 模式
-    toggler = {
-        line = 'gcc',
-        block = 'gbc',
+-- normal 模式
+toggler = {
+line = 'gcc',
+block = 'gbc',
     },
-    -- visual 模式
-    opleader = {
-        line = 'gc',
-        block = 'gb',
+-- visual 模式
+opleader = {
+line = 'gc',
+block = 'gb',
     },
 }
 
