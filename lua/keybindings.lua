@@ -60,56 +60,6 @@ map("n", "<C-ww>", "<C-w>h", opt)
 
 -----------------  分屏窗口 end ------------------
 
------------------ leader start -------------------
-
--- f for file
--- file explore nvimTree
--- map('n', '<leader>fe', ':NvimTreeToggle<CR>', opt)
--- file clean nvim-treesitter 代码格式化
--- map("n", "<leader>fc", "gg=G", opt)
--- file search
--- map("n", "<leader>fs", ":Telescope find_files<CR>", opt)
--- file path
--- map("n", "<leader>fp", ":let @+=expand('%:p')<CR>", opt)
-
--- b for buffer
--- buffer close current 关闭buffer
--- map("n", "<leader>bcc", ":bw<CR>", opt)
--- buffer close other 关闭其他buffer
--- map("n", "<leader>bco", ":%bdelete|edit #|normal `<CR>", opt)
-
-
--- w for window
--- window split
--- map("n", "<leader>ws", ":sp<CR>", opt)
--- window vertical split
--- map("n", "<leader>wvs", ":vsp<CR>", opt)
--- window h for left
--- map("n", "<leader>wh", "<C-w>h", opt)
--- window h for right
--- map("n", "<leader>wl", "<C-w>l", opt)
--- window k for up
--- map("n", "<leader>wk", "<C-w>k", opt)
--- window j for down
--- map("n", "<leader>wj", "<C-w>j", opt)
--- window close
--- map("n", "<leader>wc", "<C-w>c", opt)
-
--- symbol search 查找当前symbol
-map("n", "<leader>ss", ":Telescope lsp_document_symbols<CR>", opt)
--- registers list 列出寄存器 r for
-map("n", "<leader>rl", ":Telescope registers<CR>", opt)
-
--- 列出项目 p for project
-map("n", "<leader>p", ":Telescope projects<CR>", opt)
--- quit quit
-map("n", "<leader>qq", ":q<CR>", opt)
--- quick all
-map("n", "<leader>qa", ":qall<CR>", opt)
-
------------------ leader end -------------------
-
-
 ----------------- 插件快捷键 start -------------------
 
 
@@ -123,10 +73,6 @@ pluginKeys = {}
 
 -- lsp 回调函数快捷键设置
 pluginKeys.maplsp = function(mapbuf)
-    -- rename
-    mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
-    -- code action
-    mapbuf('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
     -- go xx
     mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
     mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
@@ -137,15 +83,6 @@ pluginKeys.maplsp = function(mapbuf)
     mapbuf('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>', opt)
     mapbuf('n', '<A-Left>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
     mapbuf('n', '<A-Right>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
-    -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
-    -- file formatting
-    -- mapbuf('n', '<leader>ff', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
-    -- mapbuf('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt)
-    -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
-    -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
-    -- workspace folder
-    -- mapbuf('n', '<leader>wf', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
-    -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
 
 -- nvim-cmp 自动补全

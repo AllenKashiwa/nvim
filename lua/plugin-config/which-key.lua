@@ -22,11 +22,30 @@ wk.register({
         k = { "<C-w>k", "Move to Up Window" },
         c = { "<C-w>c", "Close Window" },
     },
+    b = {
+        name = "buffer",
+        cc = { ":bw<cr>", "Close Cur Buffer" },
+        co = { ":%bdelete|edit #|normal `<cr>", "Close Other Buffers" },
+    },
+    c = {
+        name = "code",
+        a = {'<cmd>lua vim.lsp.buf.code_action()<CR>', "Code Action"},
+    },
+    s = {
+        name = "symbol",
+        s = { ":Telescope lsp_document_symbols<cr>", "Search Symbol" },
+        r = { '<cmd>lua vim.lsp.buf.rename()<cr>', "Rename Symbol" },
+    },
+    q = {
+        name = "quit",
+        q = { ":q<cr>", "Quick Quit" },
+        a = { ":qall<cr>", "Quick All" },
+    },
+    r = {
+        name = "register",
+        l = { ":Telescope registers<CR>", "List Registers" },
+    },
+    p = { ":Telescope projects<CR>", "+projects" },
 
 }, { prefix = "<leader>" })
 
-wk.register({
-    ["<leader>b"] = { name = "+buffer" },
-    ["<leader>bcc"] = { ":bw<cr>", "Close Cur Buffer" },
-    ["<leader>bco"] = { ":%bdelete|edit #|normal `<CR>", "Close Other Buffers" },
-})
