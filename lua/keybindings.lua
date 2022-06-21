@@ -44,6 +44,10 @@ map('n', '<C-c>', '"+yy', opt)
 -- 从系统剪切板粘贴
 map('n', '<C-v>', '"+p', opt)
 map('v', '<C-v>', '"+p', opt)
+-- command模式下粘贴neovim内赋值的内容
+map("c", "<C-v>", "<C-r>\"", {noremap = false})
+-- command模式下粘贴系统剪切板的内容
+map('c', '<S-v>', '<C-r>+', {noremap = false})
 
 -----------------  文本编辑 end --------------------
 
