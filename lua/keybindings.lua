@@ -44,6 +44,7 @@ map('n', '<C-c>', '"+yy', opt)
 -- 从系统剪切板粘贴
 map('n', '<C-v>', '"+p', opt)
 map('v', '<C-v>', '"+p', opt)
+map('i', '<C-v>', '<ESC>"+p', opt)
 -- command模式下粘贴neovim内赋值的内容
 map("c", "<C-v>", "<C-r>\"", {noremap = false})
 -- command模式下粘贴系统剪切板的内容
@@ -127,33 +128,33 @@ pluginKeys.telescopeList = {
     i = {
         -- 上下移动
         ["<C-j>"] = "move_selection_next",
-["<C-k>"] = "move_selection_previous",
-["<C-n>"] = "move_selection_next",
-["<C-p>"] = "move_selection_previous",
--- 历史记录
-["<Down>"] = "cycle_history_next",
-["<Up>"] = "cycle_history_prev",
--- 关闭窗口
--- ["<esc>"] = actions.close,
-["<C-c>"] = "close",
--- 预览窗口上下滚动
-["<C-u>"] = "preview_scrolling_up",
-["<C-d>"] = "preview_scrolling_down",
+        ["<C-k>"] = "move_selection_previous",
+        ["<C-n>"] = "move_selection_next",
+        ["<C-p>"] = "move_selection_previous",
+        -- 历史记录
+        ["<Down>"] = "cycle_history_next",
+        ["<Up>"] = "cycle_history_prev",
+        -- 关闭窗口
+        -- ["<esc>"] = actions.close,
+        ["<C-c>"] = "close",
+        -- 预览窗口上下滚动
+        ["<C-u>"] = "preview_scrolling_up",
+        ["<C-d>"] = "preview_scrolling_down",
     },
 }
 
 -- 代码注释插件
 -- see ./lua/plugin-config/comment.lua
 pluginKeys.comment = {
--- normal 模式
-toggler = {
-line = 'gcc',
-block = 'gbc',
+    -- normal 模式
+    toggler = {
+        line = 'gcc',
+        block = 'gbc',
     },
--- visual 模式
-opleader = {
-line = 'gc',
-block = 'gb',
+    -- visual 模式
+    opleader = {
+        line = 'gc',
+        block = 'gb',
     },
 }
 
