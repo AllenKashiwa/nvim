@@ -36,11 +36,14 @@ return require('packer').startup(function(use)
     -- telescope
     use({
         "nvim-telescope/telescope.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
+        requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-live-grep-args.nvim" },
     })
     -- telescope extensions
     use("LinArcX/telescope-env.nvim")
     use("nvim-telescope/telescope-ui-select.nvim")
+    use("MattesGroeger/vim-bookmarks")
+    use("tom-anders/telescope-vim-bookmarks.nvim")
+
     -- project
     use("ahmedkhalf/project.nvim")
     -- indent-blankline
