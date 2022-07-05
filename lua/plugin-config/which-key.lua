@@ -27,6 +27,11 @@ wk.register({
         cc = { ":bw<cr>", "Close Cur Buffer" },
         co = { ":%bdelete|edit #|normal `<cr>", "Close Other Buffers" },
     },
+    d = {
+        name = "diff",
+        s = {'<cmd>vert diffsplit', "Diff Split"},
+        t = {'<cmd>diffthis', "Diff This"},
+    },
     c = {
         name = "code",
         a = {'<cmd>lua vim.lsp.buf.code_action()<CR>', "Code Action"},

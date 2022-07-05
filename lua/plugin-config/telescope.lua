@@ -47,6 +47,12 @@ telescope.setup({
         },
         live_grep_args = {
             auto_quoting = false, -- enable/disable auto-quoting
+            mappings = {
+                i = {
+                    ["<C-j>"] = "move_selection_next",
+                    ["<C-k>"] = "move_selection_previous",
+                }
+            }
         }
     },
 })

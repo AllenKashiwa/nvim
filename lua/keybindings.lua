@@ -120,7 +120,7 @@ end
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 -- search everything
-map("n", "<C-t>", ":Telescope live_grep<CR>", opt)
+map("n", "<C-t>", ":Telescope live_grep_args<CR>", opt)
 -- 搜symbol
 map("n", "<A-\\>", ":Telescope lsp_document_symbols<CR>", opt)
 
