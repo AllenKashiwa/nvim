@@ -65,7 +65,7 @@ return require('packer').startup(function(use)
     use("theHamsta/nvim-dap-virtual-text")
     use("rcarriga/nvim-dap-ui")
     use("j-hui/fidget.nvim")
-    
+
     ---------------- colorschemes --------------
     -- tokyonight
     use("folke/tokyonight.nvim")
@@ -73,7 +73,10 @@ return require('packer').startup(function(use)
     use {
         "glepnir/zephyr-nvim",
     }
+    -- 自动保存
     use "Pocco81/AutoSave.nvim"
+    -- 自动加载
+    use "djoshea/vim-autoread"
 
     use {
         "folke/which-key.nvim",
