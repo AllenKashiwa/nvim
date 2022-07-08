@@ -120,7 +120,10 @@ end
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 -- search everything
-map("n", "<C-t>", ":Telescope live_grep_args<CR>", opt)
+map("n", "<C-t>", ":Telescope live_grep<CR>", opt)
+map("n", "<C-f>", ":Telescope live_grep_args<CR>", opt)
+-- 将选中的内容保存到系统剪切板并进入搜索
+map("v", "<C-t>", '"+y:Telescope live_grep<CR>', opt)
 -- 搜symbol
 map("n", "<A-\\>", ":Telescope lsp_document_symbols<CR>", opt)
 
@@ -140,6 +143,7 @@ pluginKeys.telescopeList = {
         -- 预览窗口上下滚动
         ["<C-u>"] = "preview_scrolling_up",
         ["<C-d>"] = "preview_scrolling_down",
+
     },
 }
 

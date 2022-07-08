@@ -44,7 +44,7 @@ wk.register({
     q = {
         name = "quit",
         q = { ":q<cr>", "Quick Quit" },
-        a = { ":qall<cr>", "Quick All" },
+        a = { ":qall<cr>", "Quit All" },
     },
     r = {
         name = "register",
