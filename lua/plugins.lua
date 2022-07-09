@@ -44,6 +44,8 @@ return require('packer').startup(function(use)
     use("MattesGroeger/vim-bookmarks")
     use("tom-anders/telescope-vim-bookmarks.nvim")
 
+    --session
+    use("Shatur/neovim-session-manager")
     -- project
     use("ahmedkhalf/project.nvim")
     -- indent-blankline

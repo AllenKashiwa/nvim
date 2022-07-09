@@ -21,6 +21,7 @@ require("plugin-config.fidget")
 require("plugin-config.autosave")
 require("plugin-config.vim-vsnip")
 require("plugin-config.which-key")
+require("plugin-config.nvim-session-manager")
 -- 内置LSP
 require("lsp.setup")
 require("lsp.nvim-cmp")
