@@ -24,8 +24,10 @@ wk.register({
     },
     b = {
         name = "buffer",
+        b = {":BufferLinePick<cr>", "Buffer pick"},
         cc = { ":bw<cr>", "Close Cur Buffer" },
         co = { ":%bdelete|edit #|normal `<cr>", "Close Other Buffers" },
+        cr = { ":BufferLineCloseRight<cr>", "Close Right Buffers" },
     },
     d = {
         name = "diff",
