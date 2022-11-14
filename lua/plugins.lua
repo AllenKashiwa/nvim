@@ -76,7 +76,7 @@ return require('packer').startup(function(use)
         "glepnir/zephyr-nvim",
     }
     -- 自动保存
-    use "Pocco81/AutoSave.nvim"
+    use "Pocco81/auto-save.nvim"
     -- 自动加载
     use "djoshea/vim-autoread"
 
